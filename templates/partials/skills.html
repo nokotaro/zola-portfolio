@@ -1,0 +1,26 @@
+{% macro display() %}
+{% set data = load_data(path="data/skills.json") %}
+<div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%;">
+  <h2>skills</h2>
+  <div style="overflow: auto;">
+    {% for group in data %}
+    <div style="padding-bottom: 1rem;">
+      <h3 style="color: #868e96;">{{ group.grouping }}</h3>
+      <div>
+        {% for skill in group.skills %}
+        {% if "name" in skill %}
+        {% if "icon" in skill %}
+        <span class="icon"><i class="devicon-{{  skill.icon | lower }}-plain"></i></span>{{ skill.name }}
+        {% else %}
+        <span class="icon"><i class="devicon-{{  skill.name | lower }}-plain"></i></span>{{ skill.name }}
+        {% endif %}
+        {% else %}
+        <span class="icon"><i class="devicon-{{  skill | lower }}-plain"></i></span>{{ skill }}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}

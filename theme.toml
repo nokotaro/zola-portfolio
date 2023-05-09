@@ -1,16 +1,16 @@
-base_url = "https://resume.alongwy.top"
+name = "resume"
+description = "A resume theme"
+license = "MIT"
+homepage = "https://github.com/alongwy/zola-resume"
+min_version = "0.11.0"
+demo = "https://resume.alongwy.top"
+
 compile_sass = true
-title = "Feng"
-description = "A clean resume theme"
 generate_feed = true
-build_search_index = true
+
 taxonomies = [
   { name = "tags", feed = true },
 ]
-
-[markdown]
-highlight_code = true
-highlight_theme = "OneHalfLight"
 
 [extra]
 first_name = "Feng"
@@ -29,3 +29,12 @@ show_publications = true
 show_experience = true
 show_education = true
 show_blog = true
+
+[author]
+name = "Feng Yunlong"
+homepage = "https://www.alongwy.top"
+
+[original]
+author =  "Vincent Prouillet"
+homepage = "https://www.vincentprouillet.com"
+repo = "https://github.com/getzola/hyde"

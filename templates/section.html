@@ -1,0 +1,63 @@
+{# Default section.html template #}
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container is-fluid" style="min-height: 100vh;">
+  <div class="is-flex is-flex-direction-column is-justify-content-center" style="min-height: 100vh;">
+    <div>
+      <h1>{{ section.title }}</h1>
+      <div class="content">{{ section.content | safe }}</div>
+    </div>
+    {% for page in section.pages | reverse %}
+    <div class="mb-5">
+      <nav class="level mb-0">
+        <div class="level-left">
+          <div class="level-item">
+            <h3 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+          </div>
+          {% if page.extra.bibtex %}
+          <div class="level-item">
+            <a role="button" data-target="copyTarget" aria-haspopup="true"
+              onclick="show_bib('{{ get_url(path=page.extra.bibtex)}}')">
+              <span class="tag is-warning">Bibtex</span>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+          </div>
+        </div>
+      </nav>
+      <div class="is-flex is-flex-direction-row">
+        {% if page.description %}
+        <div class="content" style="width: 100%;">
+          {% if page.extra.image %}
+          <figure class="image is-128x128" style="float: {% if section.title == 'Publications' %}right{% else %}left{% endif %};">
+            {% if page.extra.image is starting_with("http") %}
+            <img src="{{ page.extra.image }}">
+            {% else %}
+            <img src="{{ get_url(path=page.extra.image) }}">
+            {% endif %}
+          </figure>
+          {% endif %}
+          {{ page.description | markdown() | safe }}
+          <a href="{{ page.permalink }}">Read More</a>
+        </div>
+        {% endif %}
+      </div>
+      {% if page.taxonomies.tags %}
+      <div class="tags">
+        {% for tag in page.taxonomies.tags %}
+        <span class="tag"><a href="/tags/{{ tag | lower }}">{{ tag }}</a></span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}

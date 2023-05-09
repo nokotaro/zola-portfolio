@@ -1,0 +1,60 @@
+{% import 'partials/about.html' as partial_about -%}
+{% import 'partials/skills.html' as partial_skills -%}
+{% import 'partials/experience.html' as partial_experience -%}
+{% import 'partials/education.html' as partial_education -%}
+{% import 'partials/section.html' as partial_section -%}
+
+{% extends "base.html" %}
+
+{% block content %}
+<div id="fullpage">
+  {% if config.extra.show_about %}
+  <div class="section hero is-fullheight page" id="about">
+    {{ partial_about::display() }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_skills %}
+  <div class="section hero is-fullheight page" id="skills">
+    {{ partial_skills::display() }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_projects %}
+  <div class="section hero is-fullheight page" id="projects">
+    {{ partial_section::display(title="projects", path="projects/_index.md") }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_opensource %}
+  <div class="section hero is-fullheight page" id="opensource">
+    {{ partial_section::display(title="opensource",path="opensource/_index.md") }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_publications %}
+  <div class="section hero is-fullheight page" id="publications">
+    {{ partial_section::display(title="publications",path="publications/_index.md", align="right", bibtex=true) }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_experience %}
+  <div class="section hero is-fullheight page" id="experience">
+    {{ partial_experience::display() }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_education %}
+  <div class="section hero is-fullheight page" id="education">
+    {{ partial_education::display() }}
+  </div>
+  {% endif %}
+
+  {% if config.extra.show_blog %}
+  <div class="section hero is-fullheight page" id="blog">
+    {{ partial_section::display(title="blog",path="blog/_index.md") }}
+  </div>
+  {% endif %}
+
+</div>
+{% endblock content %}

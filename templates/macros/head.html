@@ -1,0 +1,51 @@
+{% macro stylesheet() %}
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/saira-extra-condensed@4.5.0/index.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@4.5.0/index.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.13.0/devicon.min.css">
+{% if config.extra.katex %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css">
+{% endif %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<link rel="stylesheet" href="{{ get_url(path='main.css', trailing_slash=false) }}">
+{% endmacro %}
+
+{% macro javascript() %}
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+{% if config.extra.katex %}
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"></script>
+{% endif %}
+{% if config.build_search_index %}
+<script src="{{ get_url(path='elasticlunr.min.js') | safe }}" defer></script>
+{% if config.default_language %}
+<script src="{{ get_url(path='search_index.' ~ config.default_language ~ '.js' ) | safe }}" defer></script>
+{% else %}
+<script src="{{ get_url(path='search_index.en.js' ) | safe }}" defer></script>
+{% endif %}
+{% endif %}
+{% endmacro %}
+
+{% macro katex() %}
+{% if config.extra.katex %}
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+{% endif %}
+{% endmacro %}
+
+{% macro rss() %}
+<!-- RSS -->
+{% if config.generate_feed %}
+<link rel="alternate" type={% if config.feed_filename=="atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+{% endif %}
+{% endmacro %}
+
+{% macro avatar() %}
+{% if config.extra.avatar %}
+<div style="display:block;margin:auto auto 0;padding:.5rem">
+    <figure class="image">
+        <img id="avatar" class="is-rounded" src="{{ get_url(path=config.extra.avatar ) }}">
+    </figure>
+</div>
+{% endif %}
+{% endmacro %}
