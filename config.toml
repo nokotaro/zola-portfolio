@@ -1,4 +1,4 @@
-base_url = "https://nokotaro.com"
+base_url = "https://about.nokotaro.com"
 compile_sass = true
 title = "Nokotaro.com"
 description = "A clean resume theme"

@@ -3,7 +3,7 @@ backend:
   repo: nokotaro/zola-portfolio
   branch: main
   cms_label_prefix: netlify-cms/
-  site_domain: nokotaro.com
+  site_domain: about.nokotaro.com
 
 locale: "ja"
 media_folder: "static/media"
