@@ -2,37 +2,32 @@
   {
     "grouping": "Languages, Operating Systems & Tools",
     "skills": [
-      "Cplusplus",
-      "Rust",
       "Java",
+      "Kotlin",
+      "Rust",
       "Python",
+      "Dart",
+      "TypeScript",
+      "Clojure",
       "git",
       "linux",
-      "bash",
-      "javascript"
-    ]
-  },
-  {
-    "grouping": "Platform Development & Administration",
-    "skills": [
-      "NGINX",
-      "MySQL",
-      {
-        "name": "Slurm",
-        "icon": "bash"
-      }
+      "bash"
     ]
   },
   {
     "grouping": "Data Management",
     "skills": [
       {
-        "name": "MySQL/MariaDB",
+        "name": "PostgreSQL",
+        "icon": "PostgreSQL"
+      },
+      {
+        "name": "MySQL",
         "icon": "MySQL"
       },
       {
-        "name": "Sqlite",
-        "icon": "bash"
+        "name": "Redis",
+        "icon": "Redis"
       }
     ]
   },
@@ -70,12 +65,13 @@
     "skills": [
       {
         "name": "Docker",
-        "link": "https://docker.com"
+        "link": "https://docker.com",
+        "icon": "Docker"
       },
       {
-        "name": "Aliyun",
-        "link": "https://aliyun.com",
-        "icon": "bash"
+        "name": "Google Cloud",
+        "link": "https://cloud.google.com",
+        "icon": "Google"
       }
     ]
   }

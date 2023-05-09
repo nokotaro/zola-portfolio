@@ -4,7 +4,7 @@
   <div class="flex: 1;">
     <h1>{{ config.extra.first_name }} <span class="text-primary">{{ config.extra.last_name }}</span></h1>
     <h2 class="subtitle">
-      {{ config.extra.address ~ " · " }} <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>
+      {{ config.extra.address }}
     </h2>
   </div>
   <div class="is-flex is-flex-direction-column is-justify-content-center" style="flex: 1; overflow: auto;">
@@ -12,8 +12,8 @@
       {{ section.content | safe }}
     </div>
     <div class="is-hidden-touch">
-      <h3>Certifications</h3>
-      {% set data = load_data(path="data/certifications.json") %}
+      <h3>Achievements</h3>
+      {% set data = load_data(path="data/achievements.json") %}
       {% for item in data %}
       <a href="{{ item.proof }}" data-toggle="tooltip" title="{{ item.name }}" data-offset="0,10" rel="me">
         <figure class="image is-64x64">

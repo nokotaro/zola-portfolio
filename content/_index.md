@@ -2,12 +2,11 @@
 title: "About"
 ---
 
-### Hi there 👋 I'm Yunlong Feng. A PhD student in Harbin Institute of Technology.
+### Hi there 👋 I'm Nokotaro Takeda.
 
-- 🌱 I’m currently learning nlp and rust in [scir](https://ir.hit.edu.cn).
-- 💬 Ask me anything [here](https://github.com/alongwy/alongwy/issues).
-- 📫 How to reach me: [Mail](mailto:ylfeng@ir.hit.edu.cn) [Gmail](mailto:alongwyforever@gmail.com) [Outlook](mailto:alongwyforever@outlook.com)
-- 🐯 My GitHub [Overview](https://github.com/alongwy) and side project [NotCraft](https://notcraft.alongwy.top)
+- 💬 Ask me anything [here](https://github.com/nokotaro).
+- 📫 How to reach me: [Twitter](https://twitter.com/takenoko_0714) or [Misskey](https://misskey.nokotaro.com/@takenoko).
+- 🎍 My GitHub [Overview](https://github.com/nokotaro).
 
-[![Stat](https://github-readme-stats.vercel.app/api?username=alongwy&count_private=true&show_icons=true&line_height=20&theme=default)](https://github.com/alongwy)
-[![Top-Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alongwy&layout=compact&hide=HTML,PostScript&theme=default_repocard)](https://github.com/alongwy)
+[![Stat](https://github-readme-stats.vercel.app/api?username=nokotaro&count_private=true&show_icons=true&line_height=20&theme=default)](https://github.com/nokotaro)
+[![Top-Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=nokotaro&layout=compact&hide=HTML,PostScript&theme=default_repocard)](https://github.com/nokotaro)

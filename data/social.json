@@ -1,34 +1,26 @@
 [
   {
-    "name": "WeiXin",
-    "link": "img/wechat.png"
+    "name": "Twitter",
+    "link": "https://twitter.com/takenoko_0714"
   },
   {
-    "name": "QQ",
-    "link": "img/qq.png"
+    "name": "Misskey",
+    "link": "https://misskey.nokotaro.com/@takenoko"
+  },
+  {
+    "name": "Mastodon",
+    "link": "https://fedibird.com/@takenoko"
+  },
+  {
+    "name": "Nostr",
+    "link": "https://iris.to/npub12ftld459xqw7s7fqnxstzu7r74l5yagxztwcwmaqj4d24jgpj2csee3mx0"
+  },
+  {
+    "name": "Bluesky",
+    "link": "https://bsky.app/profile/nokotaro.com"
   },
   {
     "name": "GitHub",
-    "link": "https://github.com/AlongWY"
-  },
-  {
-    "name": "Gitlab",
-    "link": "https://gitlab.com/AlongWY"
-  },
-  {
-    "name": "Bitbucket",
-    "link": "https://bitbucket.org/alongwy"
-  },
-  {
-    "name": "Docker",
-    "link": "https://hub.docker.com/u/alongwy"
-  },
-  {
-    "name": "Python",
-    "link": "https://pypi.org/user/ylfeng"
-  },
-  {
-    "name": "Google",
-    "link": "mailto://alongwyforever@outlook.com"
+    "link": "https://github.com/nokotaro"
   }
 ]

@@ -1,16 +1,9 @@
 [
     {
-        "school": "[Harbin Institute of Technology](https://hit.edu.cn)",
-        "degree": "Computer Science and Technology",
-        "major": "Linear algebra, Multivariable calculus, Algorithm",
+        "school": "[Tokyo University of Science](https://www.tus.ac.jp)",
+        "degree": "Department of Electrical Engineering",
+        "major": "Fabrication of compound semiconductors used in various optical devices and evaluation of their electrical and optical properties.",
         "notes": "Bachelor of Engineering",
-        "range": "2016 - 2020"
-    },
-    {
-        "school": "[Harbin Institute of Technology](https://hit.edu.cn)",
-        "degree": "Computer Science and Technology",
-        "major": "Natural language processing",
-        "notes": "Master of Engineering & PhD",
-        "range": "2020 - NOW"
+        "range": "2015 - 2018"
     }
 ]

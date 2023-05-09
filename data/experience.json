@@ -1,26 +1,26 @@
 [
     {
-        "role": "Developer",
-        "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
-        "summary": "[Development Language Technology Platform v4](https://github.com/HIT-SCIR/ltp)",
-        "range": "September 2019 - NOW"
+        "role": "Web Application Engineer",
+        "company": "[LINE Digital Frontier Corp.](https://ldfcorp.com) (subcontractor)",
+        "summary": "Development of management web services for LINE Manga.",
+        "range": "October 2022 - March 2023"
     },
     {
-        "role": "Developer",
-        "company": "[Yunfutech](https://www.yunfutech.com/)",
-        "summary": "Developmet a collections of nlp tools",
-        "range": "July 2019 -  September 2019"
+        "role": "Software Engineer (SWE)",
+        "company": "[Uzabase, Inc.](https://www.uzabase.com) (subcontractor)",
+        "summary": "Development and operation of web applications for economic information platform.",
+        "range": "Aplil 2020 -  September 2022"
     },
     {
-        "role": "Developer",
-        "company": "[HIT Web Intellegence Lab](http://wi.hit.edu.cn/)",
-        "summary": "Implemented English part and management Tool of WI IME",
-        "range": "July 2018 - September 2018"
+        "role": "Web Application Engineer",
+        "company": "[MT-Strategy Co., Ltd.](https://www.mt-strategy.biz) (subcontractor)",
+        "summary": "HR and appointment scheduling services for sales and financial planner.",
+        "range": "December 2019 - March 2020"
     },
     {
-        "role": "Developer",
-        "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
-        "summary": "[Development Language Technology Platform v3](https://github.com/HIT-SCIR/ltp/tree/3.X)",
-        "range": "September 2017 -  December 2017"
+        "role": "System Engineer",
+        "company": "[Doing Co., Ltd.](https://www.idoing.jp)",
+        "summary": "Maintenance and development of a financial core system for a major bank.",
+        "range": "July 2018 -  August 2019"
     }
 ]

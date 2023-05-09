@@ -1,6 +1,6 @@
-base_url = "https://resume.alongwy.top"
+base_url = "https://nokotaro.com"
 compile_sass = true
-title = "Feng"
+title = "Nokotaro.com"
 description = "A clean resume theme"
 generate_feed = true
 build_search_index = true
@@ -13,10 +13,10 @@ highlight_code = true
 highlight_theme = "OneHalfLight"
 
 [extra]
-first_name = "Feng"
-last_name = "Yunlong"
-address = "Harbin, China"
-email = "ylfeng@ir.hit.edu.cn"
+first_name = "Nokotaro"
+last_name = "Takeda"
+address = "Saitama, Tokyo"
+email = "takenoko@mail.nokotaro.com"
 favicon = "/favicon.ico"
 avatar = "/media/avatar.png"
 
