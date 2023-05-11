@@ -1,26 +1,37 @@
 [
   {
     "name": "Twitter",
+    "icon": "Twitter",
     "link": "https://twitter.com/takenoko_0714"
   },
   {
     "name": "Misskey",
+    "icon": "Misskey",
     "link": "https://misskey.nokotaro.com/@takenoko"
   },
   {
     "name": "Mastodon",
+    "icon": "Mastodon",
     "link": "https://fedibird.com/@takenoko"
   },
   {
     "name": "Nostr",
+    "icon": "Nostr",
     "link": "https://iris.to/npub12ftld459xqw7s7fqnxstzu7r74l5yagxztwcwmaqj4d24jgpj2csee3mx0"
   },
   {
     "name": "Bluesky",
+    "icon": "Bluesky",
     "link": "https://bsky.app/profile/nokotaro.com"
   },
   {
     "name": "GitHub",
+    "icon": "GitHub",
     "link": "https://github.com/nokotaro"
+  },
+  {
+    "name": "Keybase",
+    "icon": "Keybase",
+    "link": "https://keybase.io/takenoko"
   }
 ]
