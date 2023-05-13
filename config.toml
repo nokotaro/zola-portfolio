@@ -15,7 +15,7 @@ highlight_theme = "OneHalfLight"
 [extra]
 first_name = "Nokotaro"
 last_name = "Takeda"
-address = "Saitama, Tokyo"
+address = "Saitama, Japan"
 email = "takenoko@mail.nokotaro.com"
 favicon = "/favicon.ico"
 avatar = "/media/avatar.png"
