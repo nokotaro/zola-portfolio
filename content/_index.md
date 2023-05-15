@@ -4,7 +4,6 @@ title: "About"
 
 ### Hi there 👋 I'm Nokotaro Takeda.
 
-- 💬 Ask me anything [here](https://github.com/nokotaro).
 - 📫 How to reach me: [Twitter](https://twitter.com/takenoko_0714) or [Misskey](https://misskey.nokotaro.com/@takenoko).
 - 🎍 My GitHub [Overview](https://github.com/nokotaro).
 
