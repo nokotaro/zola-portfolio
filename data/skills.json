@@ -43,10 +43,6 @@
         "icon": "bash"
       },
       {
-        "name": "Firewalls",
-        "icon": "bash"
-      },
-      {
         "name": "Load Balancing",
         "icon": "bash"
       },
