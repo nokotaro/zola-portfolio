@@ -4,11 +4,9 @@ backend:
   branch: main
   cms_label_prefix: netlify-cms/
   site_domain: about.nokotaro.com
-
 locale: "ja"
 media_folder: "static/media"
 public_folder: "/media"
-
 collections:
   - name: "Blog"
     label: "ブログ"
@@ -31,7 +29,6 @@ collections:
           - { label: "リンク", name: "link", widget: "string" }
           - { label: "画像", name: image, widget: "image" }
       - { label: "本文", name: "body", widget: "markdown" }
-
   - name: "Projects"
     label: "プロジェクト"
     folder: "content/projects"
@@ -53,7 +50,6 @@ collections:
           - { label: "リンク", name: "link", widget: "string" }
           - { label: "画像", name: image, widget: "image" }
       - { label: "本文", name: "body", widget: "markdown" }
-
   - name: "Contributions"
     label: "OSS"
     folder: "content/opensource"
@@ -75,7 +71,6 @@ collections:
           - { label: "リンク", name: "link", widget: "string" }
           - { label: "画像", name: image, widget: "image" }
       - { label: "本文", name: "body", widget: "markdown" }
-
   - name: "Publications"
     label: "出版物"
     folder: "content/publications"
@@ -98,7 +93,6 @@ collections:
           - { label: "リンク", name: "link", widget: "string" }
           - { label: "画像", name: image, widget: "image" }
       - { label: "本文", name: "body", widget: "markdown" }
-
   - name: "settings"
     label: "設定"
     delete: false
