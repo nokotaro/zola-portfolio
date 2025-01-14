@@ -2,28 +2,28 @@
 <ul id="menu" class="menu-list">
     
 {% if config.extra.show_about           %}
-<li data-menuanchor="about"><a href="{{ get_url(path='/#about') }}">ABOUT</a></li>   
+<li data-menuanchor="about"><a href="{{ get_url(path='/#anchor_about') }}">ABOUT</a></li>   
 {% endif %}
 {% if config.extra.show_skills          %} 
-<li data-menuanchor="skills"><a href="{{ get_url(path='/#skills') }}">SKILLS</a></li>
+<li data-menuanchor="skills"><a href="{{ get_url(path='/#anchor_skills') }}">SKILLS</a></li>
 {% endif %}
 {% if config.extra.show_projects        %}
-<li data-menuanchor="projects"><a href="{{ get_url(path='/#projects') }}">PROJECTS</a></li>
+<li data-menuanchor="projects"><a href="{{ get_url(path='/#anchor_projects') }}">PROJECTS</a></li>
 {% endif %}
 {% if config.extra.show_opensource      %} 
-<li data-menuanchor="opensource"><a href="{{ get_url(path='/#opensource') }}">OPEN SOURCE</a></li>
+<li data-menuanchor="opensource"><a href="{{ get_url(path='/#anchor_opensource') }}">OPEN SOURCE</a></li>
 {% endif %}
 {% if config.extra.show_publications    %}
-<li data-menuanchor="publications"><a href="{{ get_url(path='/#publications') }}">PUBLICATIONS</a></li>
+<li data-menuanchor="publications"><a href="{{ get_url(path='/#anchor_publications') }}">PUBLICATIONS</a></li>
 {% endif %}
 {% if config.extra.show_experience      %} 
-<li data-menuanchor="experience"><a href="{{ get_url(path='/#experience') }}">EXPERIENCE</a></li>
+<li data-menuanchor="experience"><a href="{{ get_url(path='/#anchor_experience') }}">EXPERIENCE</a></li>
 {% endif %}
 {% if config.extra.show_education       %} 
-<li data-menuanchor="education"><a href="{{ get_url(path='/#education') }}">EDUCATION</a></li>
+<li data-menuanchor="education"><a href="{{ get_url(path='/#anchor_education') }}">EDUCATION</a></li>
 {% endif %}
 {% if config.extra.show_blog            %} 
-<li data-menuanchor="blog"><a href="{{ get_url(path='/#blog') }}">BLOG</a></li>    
+<li data-menuanchor="blog"><a href="{{ get_url(path='/#anchor_blog') }}">BLOG</a></li>    
 {% endif %}
 </ul>
 {% endmacro %}
@@ -36,14 +36,14 @@
         menu: '#menu',
         setRecordHistory: false,
         anchors: [
-            {% if config.extra.show_about           %} 'about',         {% endif %}
-            {% if config.extra.show_skills          %} 'skills',        {% endif %}
-            {% if config.extra.show_projects        %} 'projects',      {% endif %}
-            {% if config.extra.show_opensource      %} 'opensource',    {% endif %}
-            {% if config.extra.show_publications    %} 'publications',  {% endif %}
-            {% if config.extra.show_experience      %} 'experience',    {% endif %}
-            {% if config.extra.show_education       %} 'education',     {% endif %}
-            {% if config.extra.show_blog            %} 'blog',          {% endif %}
+            {% if config.extra.show_about           %} 'anchor_about',         {% endif %}
+            {% if config.extra.show_skills          %} 'anchor_skills',        {% endif %}
+            {% if config.extra.show_projects        %} 'anchor_projects',      {% endif %}
+            {% if config.extra.show_opensource      %} 'anchor_opensource',    {% endif %}
+            {% if config.extra.show_publications    %} 'anchor_publications',  {% endif %}
+            {% if config.extra.show_experience      %} 'anchor_experience',    {% endif %}
+            {% if config.extra.show_education       %} 'anchor_education',     {% endif %}
+            {% if config.extra.show_blog            %} 'anchor_blog',          {% endif %}
         ],
         afterResize: function( width, height ){
 		    if (width < 936) {
