@@ -52,7 +52,7 @@
 
   {% if config.extra.show_blog %}
   <div class="section hero is-fullheight page" id="blog">
-    {{ partial_section::display() }}
+    {{ partial_section::display(title="blog",path="blog/_index.md") }}
   </div>
   {% endif %}
 
