@@ -123,12 +123,28 @@ a:hover, a:focus, a:active {
     padding: .5rem;
   }
 
-  .menu-list a:hover, a:focus, a:active {
+  .menu-list a:hover, .menu-list a:focus, .menu-list a:active {
     color: rgba(255,255,255,.75);
     font-weight: bold;
     border: 0;
-    outline: none;
     background-color: transparent;
   }
+}
+
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+input:focus-visible,
+.input:focus-visible,
+select:focus-visible,
+.select select:focus-visible,
+textarea:focus-visible,
+.textarea:focus-visible {
+  outline: 3px solid #343a40;
+  outline-offset: 3px;
+}
+
+#sidebar a:focus-visible {
+  outline-offset: -3px;
 }
 
