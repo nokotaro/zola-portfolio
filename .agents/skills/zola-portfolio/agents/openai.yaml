@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zola Portfolio"
+  short_description: "Maintain this Zola portfolio safely"
+  default_prompt: "Use $zola-portfolio to implement and validate a safe change to this site."
