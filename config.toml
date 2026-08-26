@@ -18,7 +18,7 @@ last_name = "Takeda"
 address = "Tokyo, Japan"
 email = "takenoko@mail.nokotaro.com"
 favicon = "/favicon.ico"
-avatar = "/media/avatar.png"
+avatar = "https://icon.nokotaro.com/nokotaro_takeda_vrchat_avatar.jpg"
 
 katex = false
 show_about = true
