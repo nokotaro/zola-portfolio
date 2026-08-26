@@ -34,13 +34,14 @@
 ## Styling, responsive behavior, and accessibility
 
 - Inspect `sass/main.scss`, Bulma utilities, template markup, and existing inline styles before adding a new rule. Prefer the smallest change in the existing Sass entrypoint.
-- Validate both desktop and mobile. Pay special attention to the current 936px fullPage.js threshold, the 992px Sass breakpoint, Bulma's touch visibility helpers, fixed `100vh` sections, and overflow behavior.
+- Validate only the viewports and interactions required by the selected validation level. Test both desktop and mobile when both are affected, for a Level 3 regression, or when the user requests it. Pay special attention to the 936px fullPage.js threshold, the 992px Sass breakpoint, Bulma's touch visibility helpers, fixed `100vh` sections, and overflow behavior when those contracts are affected.
 - Do not worsen semantic structure, keyboard access, focus visibility, alternative text, link/button names, color contrast, reduced-motion behavior, or zoom/reflow. Do not add ARIA when native HTML already provides the correct semantics.
 - Accessibility improvements that change current markup or behavior require an explicit request; record discovered pre-existing issues without folding them into unrelated work.
 
 ## Validation
 
-- Always report the Zola version used for validation.
+- At the start of a task, state the changed area, regression risk, and validation level in one or two lines. Use the detailed criteria in `.agents/skills/zola-portfolio/references/validation.md`.
+- Use Level 1 for small, local source/content/style changes; Level 2 for affected layout, responsive, JavaScript, navigation, keyboard, focus, search, modal, overflow, or animation behavior; and Level 3 only for release/deploy readiness, migrations, large or cross-cutting changes, grouped audit completion, or an explicit user request.
 - For any site-affecting change, run at minimum:
 
   ```bash
@@ -48,11 +49,13 @@
   zola build
   ```
 
+- Always report the Zola version used for site validation.
 - Use the production-pinned Zola version when known. While that pin is unknown, use Zola 0.18.0 as the verified compatibility baseline; do not substitute a different local version or claim compatibility with an untested release.
 - A local version mismatch does not prohibit source inspection or otherwise safe, in-scope editing. If possible, obtain or use Zola 0.18.0 for `zola check` and `zola build`. If the baseline version is unavailable, continue safe work, do not migrate `config.toml` merely to satisfy the installed version, and state clearly in the completion report that baseline Zola validation was not performed.
 - Validate edited JSON, TOML, YAML, HTML, CSS, or JavaScript with an appropriate parser or targeted check when available.
-- For HTML/CSS/JavaScript, template, navigation, or layout changes, also inspect generated output in a real browser. Check at least a representative desktop and mobile viewport, relevant interactions, keyboard behavior, horizontal overflow, missing assets, and console errors.
-- For search, feed, taxonomy, or content-model changes, inspect the corresponding generated artifacts and exercise the affected route or flow.
+- Browser rendering may be omitted when layout, responsive behavior, JavaScript, and interaction are unchanged and source or generated output is sufficient. Report `Browser validation: not required for this change` when omitting it.
+- Level 2 browser checks must cover only the affected viewport, route, and interaction. Do not expand a focused check into unrelated desktop/mobile or route regression.
+- Level 3 includes desktop 1440x900, mobile 390x844, relevant breakpoint boundaries, keyboard navigation, console, search, major routes, broken assets, and horizontal overflow.
 - If required tooling is unavailable, state exactly what could not be run. Never present source inspection alone as a successful build or browser test.
 - Documentation-only changes under `AGENTS.md` or `.agents/skills/` do not require rebuilding the site when no production input changed; validate the skill structure and confirm the restricted file diff instead.
 
@@ -64,5 +67,5 @@
 
 ## Completion report
 
-- Summarize the requested change, files changed, validation commands and versions, browser checks when applicable, and any remaining risks or pre-existing issues.
+- Keep the report concise: summarize the requested change, files changed, validation level, commands and versions, browser checks when applicable, and material remaining risks. Do not repeatedly restate known baseline issues unless they affected the result.
 - Do not claim that Cloudflare production was validated or deployed unless that action was explicitly performed and its result was observed.

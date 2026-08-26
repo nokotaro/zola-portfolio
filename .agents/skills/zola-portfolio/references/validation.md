@@ -1,11 +1,49 @@
 # Validation procedure
 
-Read this reference when planning or signing off a change.
+Read this reference when selecting or signing off validation. Match validation effort to regression risk instead of running a full browser regression for every change.
 
-## Preflight
+## Select a level
+
+At task start, identify the changed area, regression risk, and validation level in one or two lines:
+
+```yaml
+Validation level: 1
+Reason: color-only SCSS change; no layout or interaction changes.
+```
+
+### Level 1 — Lightweight validation
+
+Use for small local text or color edits, small non-layout SCSS changes, local semantic HTML fixes, alt or `aria-label` additions, metadata edits, and small JSON, TOML, or Markdown changes.
+
+- Inspect the relevant source and direct consumer.
+- Run an appropriate parser or focused source check.
+- For site-affecting changes, run `zola check` and `zola build` with the verified baseline.
+- Add only checks justified by the change, such as contrast calculation, generated HTML/CSS inspection, or targeted DOM inspection.
+
+Desktop and mobile browser rendering are not required by default.
+
+### Level 2 — Targeted browser validation
+
+Use when changing layout, responsive behavior, breakpoints, JavaScript, fullPage.js behavior, keyboard or focus behavior, modals, search, navigation, overflow, animation, or reduced motion.
+
+Run Level 1, then inspect only the affected viewport, route, and interaction. For example, test an affected breakpoint and adjacent boundary for responsive work, representative desktop keyboard focus for focus work, mobile only for a mobile-only fix, or `/search` only for search work. Check console, broken assets, and overflow when relevant to that behavior.
+
+### Level 3 — Full regression validation
+
+Use only for a grouped audit completion, release or deploy readiness, a large refactor, a cross-cutting layout change, a Zola/fullPage.js/Bulma/jQuery/CMS migration, or an explicit user request.
+
+At minimum, check desktop 1440x900, mobile 390x844, relevant breakpoint boundaries, keyboard navigation, console, search, major routes, broken assets, and horizontal overflow.
+
+## Browser omission rule
+
+Browser rendering may be omitted when layout, responsive behavior, JavaScript, and interaction are unchanged and source or generated HTML/CSS inspection is sufficient. When omitted, state exactly:
+
+`Browser validation: not required for this change`
+
+## Baseline and preflight
 
 1. Run `git status --short --branch` and preserve unrelated changes.
-2. Run `zola --version` and record the result.
+2. For site-affecting work, run `zola --version` and record the result.
 3. If the Cloudflare production pin is known, verify and use that version as the baseline.
 4. While the production pin is unknown, use Zola 0.18.0 as the verified compatibility baseline.
 5. Do not use a different local Zola version as a substitute for baseline validation.
@@ -34,47 +72,51 @@ zola build --output-dir <temporary-directory>
 
 | Change | Additional validation |
 | --- | --- |
-| JSON data | Parse every edited JSON file; render the consuming homepage section |
+| JSON data | Parse edited JSON; inspect its direct template consumer |
 | TOML/config | Parse through the target Zola version; inspect every affected `config.extra` consumer |
+| Markdown/front matter | Inspect the generated page or section when source alone is insufficient |
 | CMS YAML | Parse YAML when tooling is available; compare fields with front matter and templates |
 | Tera | Exercise every branch affected by flags or optional values, not only the active production branch |
-| SCSS/CSS | Inspect compiled `main.css`; test desktop, mobile, and relevant breakpoint boundaries |
+| SCSS/CSS | Inspect compiled `main.css`; use a browser only for affected visual or layout behavior |
 | JavaScript | Exercise the interaction, inspect console errors, and check keyboard behavior |
 | Search | Open `/search`, enter representative text, and verify result links |
 | Tags | Inspect tag list/single pages and feed link generation |
 | Feed/SEO | Inspect generated head markup, feed files, sitemap, and robots output |
 | Publications/BibTeX | Enable only in an isolated test configuration if necessary; test modal, fetch, copy, and focus behavior |
 
-## Browser sign-off
+## Level 2 browser sign-off
 
-For HTML, CSS, JavaScript, template, navigation, or design changes:
+Serve the local build with the validated Zola version and check only what the changed behavior requires:
 
-1. Serve the locally generated site with the validated Zola version.
-2. Inspect a representative desktop viewport (1440x900) and mobile viewport (390x844).
-3. Inspect breakpoints affected by the change, especially around 936px and 992px.
-4. Verify anchor navigation, content reachability, horizontal overflow, missing assets, and console errors.
-5. Use keyboard navigation for every affected control.
-6. Check accessible names, landmarks, headings, image alternatives, focus visibility, and reduced-motion behavior relevant to the change.
+- Use only the affected viewport and breakpoint boundary.
+- Exercise only the affected route, control, and interaction.
+- Inspect console, missing assets, clipping, or overflow when the change could affect them.
+- Use keyboard navigation when keyboard or focus behavior is affected.
+- Do not add unrelated routes or viewports merely to make the check look comprehensive.
 
 Use a Cloudflare preview only when the user asks for deployment/preview work or the local environment cannot reproduce a provider-specific issue. Never treat a local build as proof of a successful production deployment.
+
+## Grouped regression
+
+Small audit fixes such as AUD-03, AUD-04, the remaining AUD-02 work, and AUD-07 may use Level 1 or focused Level 2 validation independently. After several related tasks reach a meaningful completion boundary, run one Level 3 regression instead of repeating it for every fix.
+
+## Context and token discipline
+
+- Do not reread the full repository for each task.
+- Load required instruction files once, apply only their task-relevant guidance, and open only task-specific references.
+- Reuse established architecture knowledge unless the changed area or repository state requires reconfirmation.
+- Avoid large screenshot collections and full DOM dumps; gather the smallest evidence that verifies the behavior.
+- Keep completion reports concise and do not repeatedly enumerate known baseline issues that did not affect the result.
 
 ## Instruction-only changes
 
 When only `AGENTS.md` or `.agents/skills/` changes:
 
 - Run the Skill Creator `quick_validate.py` against each changed skill.
-- Search for unfinished scaffold markers and sample-only tokens.
-- Review links from `SKILL.md` to references.
-- Confirm `git diff --name-only` contains only authorized instruction files.
-- A Zola rebuild is optional because these paths are not production inputs; a baseline build may still be run to document repository health.
+- Check links from `SKILL.md` to references.
+- Run `git diff --check` and confirm the final `git status --short`.
+- Do not run Zola or browser validation unless the instruction change itself requires it.
 
 ## Release report
 
-State:
-
-- Zola version.
-- Exact commands and whether they passed.
-- Whether validation used the production pin or the verified compatibility baseline; if neither was available, state that baseline Zola validation was not performed.
-- Browser viewports and interactions checked.
-- Warnings, skipped checks, and tooling limitations.
-- Whether Cloudflare preview or production was touched.
+Report the selected level, Zola version and commands for site validation, focused browser coverage when used, material limitations, and whether preview or production was touched. Keep known baseline issues brief unless they changed the outcome.
