@@ -6,7 +6,8 @@
   },
   {
     "name": "Misskey",
-    "icon": "Misskey",
+    "icon": null,
+    "fallback": "M",
     "link": "https://misskey.nokotaro.com/@takenoko"
   },
   {
@@ -16,12 +17,14 @@
   },
   {
     "name": "Nostr",
-    "icon": "Nostr",
+    "icon": null,
+    "fallback": "N",
     "link": "https://nostter.app/takenoko@nokotaro.com"
   },
   {
     "name": "Bluesky",
-    "icon": "Bluesky",
+    "icon": null,
+    "fallback": "B",
     "link": "https://bsky.app/profile/nokotaro.com"
   },
   {

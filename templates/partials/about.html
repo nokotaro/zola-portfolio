@@ -29,10 +29,14 @@
       {% set data = load_data(path="data/social.json") %}
       {% for item in data %}
       <a href="{% if item.link is starting_with('http') %}{{ item.link }}{% else %}{{ get_url(path=item.link) }}{% endif %}" style="font-size: 1.75rem;" data-toggle="tooltip" title="{{ item.name }}"
-        data-offset="0,10" rel="me">
-          <span class="fa-stack">
+        data-offset="0,10" rel="me" aria-label="{{ item.name }}">
+          <span class="fa-stack" aria-hidden="true">
             <i class="fa fa-circle fa-stack-2x"></i>
+            {% if item.icon %}
             <i class="fab fa-{{ item.icon | lower }} fa-stack-1x fa-inverse"></i>
+            {% else %}
+            <span class="fa-stack-1x fa-inverse has-text-weight-bold">{{ item.fallback }}</span>
+            {% endif %}
           </span>
         </a>
         {% endfor %}
