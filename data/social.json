@@ -7,7 +7,7 @@
   {
     "name": "Misskey",
     "icon": null,
-    "fallback": "M",
+    "asset": "/media/social/misskey.svg",
     "link": "https://misskey.nokotaro.com/@takenoko"
   },
   {
@@ -18,13 +18,13 @@
   {
     "name": "Nostr",
     "icon": null,
-    "fallback": "N",
+    "asset": "/media/social/nostr.svg",
     "link": "https://nostter.app/takenoko@nokotaro.com"
   },
   {
     "name": "Bluesky",
     "icon": null,
-    "fallback": "B",
+    "asset": "/media/social/bluesky.svg",
     "link": "https://bsky.app/profile/nokotaro.com"
   },
   {

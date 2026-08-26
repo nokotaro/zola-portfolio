@@ -35,7 +35,8 @@
             {% if item.icon %}
             <i class="fab fa-{{ item.icon | lower }} fa-stack-1x fa-inverse"></i>
             {% else %}
-            <span class="fa-stack-1x fa-inverse has-text-weight-bold">{{ item.fallback }}</span>
+            <img src="{{ item.asset }}" alt="" width="24" height="24"
+              style="position: absolute; width: 1em; height: 1em; left: 50%; top: 50%; transform: translate(-50%, -50%);">
             {% endif %}
           </span>
         </a>
