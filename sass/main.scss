@@ -1,8 +1,8 @@
 $brand-green: #82ae46;
-$text-green: #567228;
-$body-text: #5f6770;
-$sidebar-text: #2f3b20;
-$sidebar-text-active: #17200e;
+$text-green: #5f7f2e;
+$body-text: #6e767f;
+$sidebar-text: #303b21;
+$sidebar-text-active: #29351a;
 $focus-outline: #343a40;
 
 html {
@@ -93,6 +93,22 @@ a:hover, a:focus, a:active {
 
 #sidebar {
   display: none;
+}
+
+@media (max-width: 991px) {
+  .socialization {
+    margin-top: -.75rem;
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem;
+  }
+
+  .social-links a {
+    display: inline-flex;
+  }
 }
 
 @media (min-width: 992px) {

@@ -25,7 +25,10 @@
         </figure>
       </a>
       {% endfor %}
+    </div>
+    <div class="socialization">
       <h3>Socialization</h3>
+      <div class="social-links">
       {% set data = load_data(path="data/social.json") %}
       {% for item in data %}
       <a href="{% if item.link is starting_with('http') %}{{ item.link }}{% else %}{{ get_url(path=item.link) }}{% endif %}" style="font-size: 1.75rem;" data-toggle="tooltip" title="{{ item.name }}"
@@ -41,6 +44,7 @@
           </span>
         </a>
         {% endfor %}
+      </div>
     </div>
   </div>
 </div>
