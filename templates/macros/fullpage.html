@@ -32,9 +32,21 @@
 <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/dist/fullpage.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/vendors/scrolloverflow.min.js"></script>
 <script type="text/javascript">
+    var fullPageBreakpoint = 936;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function shouldUseAutoScrolling() {
+        return !reducedMotion && window.innerWidth >= fullPageBreakpoint;
+    }
+
     var fullpages = new fullpage('#fullpage', {
         menu: '#menu',
         setRecordHistory: false,
+        autoScrolling: shouldUseAutoScrolling(),
+        fitToSection: !reducedMotion,
+        animateAnchor: !reducedMotion,
+        keyboardScrolling: !reducedMotion,
+        scrollingSpeed: reducedMotion ? 0 : 700,
         anchors: [
             {% if config.extra.show_about           %} 'anchor_about',         {% endif %}
             {% if config.extra.show_skills          %} 'anchor_skills',        {% endif %}
@@ -45,17 +57,10 @@
             {% if config.extra.show_education       %} 'anchor_education',     {% endif %}
             {% if config.extra.show_blog            %} 'anchor_blog',          {% endif %}
         ],
-        afterResize: function( width, height ){
-		    if (width < 936) {
-                fullpage_api.setAutoScrolling(false);
-            } else {
-                fullpage_api.setAutoScrolling(true);
-            }
-	    }
+        afterResize: function() {
+            fullpage_api.setAutoScrolling(shouldUseAutoScrolling());
+        }
     });
-    if (screen.width < 936){
-        fullpages.setAutoScrolling(false);
-    }
 
 </script>
 {% endmacro %}
