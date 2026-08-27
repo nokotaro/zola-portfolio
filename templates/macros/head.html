@@ -44,7 +44,7 @@
 {% if config.extra.avatar %}
 <div style="display:block;margin:auto auto 0;padding:.5rem">
     <figure class="image">
-        <img id="avatar" class="is-rounded" src="{% if config.extra.avatar is starting_with("http") %}{{ config.extra.avatar }}{% else %}{{ get_url(path=config.extra.avatar) }}{% endif %}">
+        <img id="avatar" class="is-rounded" src="{% if config.extra.avatar is starting_with("http") %}{{ config.extra.avatar }}{% else %}{{ get_url(path=config.extra.avatar) }}{% endif %}" alt="{{ config.extra.first_name }} {{ config.extra.last_name }}">
     </figure>
 </div>
 {% endif %}

@@ -18,9 +18,9 @@
       <a href="{{ item.proof }}" data-toggle="tooltip" title="{{ item.name }}" data-offset="0,10" rel="me">
         <figure class="image is-64x64">
           {% if item.badge is starting_with("http") %}
-          <img src="{{ item.badge }}">
+          <img src="{{ item.badge }}" alt="{{ item.name }}">
           {% else %}
-          <img src="{{ get_url(path=item.badge) }}">
+          <img src="{{ get_url(path=item.badge) }}" alt="{{ item.name }}">
           {% endif %}
         </figure>
       </a>

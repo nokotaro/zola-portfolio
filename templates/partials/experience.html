@@ -5,7 +5,7 @@
   <div style="overflow: auto;">
     {% for item in data %}
     <div class="mb-5">
-      <nav class="level mb-0">
+      <div class="level mb-0">
         <div class="level-left">
           <div class="level-item">
             <h3>{{ item.role }}</h3>
@@ -16,9 +16,9 @@
             {{ item.range }}
           </div>
         </div>
-      </nav>
+      </div>
       <div class="is-flex is-flex-direction-column is-align-items-start">
-        <h2 class="subtitle">{{ item.company | markdown(inline=true) | safe }}</h2>
+        <h4 class="subtitle">{{ item.company | markdown(inline=true) | safe }}</h4>
         <div>
           {{ item.summary | markdown(inline=true) | safe }}
         </div>
