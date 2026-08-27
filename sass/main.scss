@@ -91,6 +91,10 @@ a:hover, a:focus, a:active {
    overflow: hidden;
 }
 
+#sidebar {
+  display: none;
+}
+
 @media (min-width: 992px) {
   #sidebar {
     top: 0;
