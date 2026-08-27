@@ -1,3 +1,10 @@
+$brand-green: #82ae46;
+$text-green: #567228;
+$body-text: #5f6770;
+$sidebar-text: #2f3b20;
+$sidebar-text-active: #17200e;
+$focus-outline: #343a40;
+
 html {
   padding: 0;
   margin: 0;
@@ -7,7 +14,7 @@ body {
   font-family: 'Open Sans', serif;
   padding: 0;
   margin: 0;
-  color: #868e96;
+  color: $body-text;
 }
 
 h1,
@@ -39,15 +46,15 @@ h2 {
 }
 
 .bg-primary {
-  background-color: #82ae46 !important;
+  background-color: $brand-green !important;
 }
 
 .text-primary {
-  color: #82ae46 !important;
+  color: $text-green !important;
 }
 
 a {
-  color: #82ae46;
+  color: $text-green;
 }
 
 a:hover, a:focus, a:active {
@@ -61,7 +68,7 @@ a:hover, a:focus, a:active {
 #content .subtitle {
   font-size: 1.35rem; 
   font-weight: 550; 
-  color: #868e96;
+  color: $body-text;
 }
 
 #content {
@@ -91,7 +98,7 @@ a:hover, a:focus, a:active {
     margin: 0;
     outline: 0;
     border: 0;
-    border-color: #82ae46;
+    border-color: $brand-green;
     height: 100vh;
     width: 17rem;
     overflow: hidden;
@@ -99,7 +106,7 @@ a:hover, a:focus, a:active {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: #82ae46;
+    background-color: $brand-green;
   }
   #content {
     margin-left: 17rem;
@@ -118,13 +125,13 @@ a:hover, a:focus, a:active {
   }
   
   .menu-list a {
-    color: rgba(90,90,90,.55);
+    color: $sidebar-text;
     font-weight: bold;
     padding: .5rem;
   }
 
   .menu-list a:hover, .menu-list a:focus, .menu-list a:active {
-    color: rgba(255,255,255,.75);
+    color: $sidebar-text-active;
     font-weight: bold;
     border: 0;
     background-color: transparent;
@@ -140,7 +147,7 @@ select:focus-visible,
 .select select:focus-visible,
 textarea:focus-visible,
 .textarea:focus-visible {
-  outline: 3px solid #343a40;
+  outline: 3px solid $focus-outline;
   outline-offset: 3px;
 }
 
