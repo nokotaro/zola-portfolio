@@ -16,14 +16,14 @@ Read this reference before changing Markdown, JSON, CMS collections, or personal
 
 Do not remove section `_index.md` files merely because their sections are empty or hidden; templates and CMS collections expect those paths.
 
-CMS-created pages in blog/projects/opensource/publications use title, date, description, optional tags, an `extra` object, and Markdown body. Common `extra` keys are `featured`, `link`, and `image`; publications also use `bibtex`.
+CMS-created pages in blog/projects/opensource/publications use YAML front matter with required title, date, `extra.link`, and Markdown body. The active page rendering path dereferences `extra.link` for all four collections. Description, `extra.featured`, and `extra.image` are optional; publications also allow optional `extra.bibtex`. Taxonomy fields are not generated while the active Zola configuration has taxonomies disabled.
 
 ## JSON-to-template contracts
 
 | Data file | Required shape | Consumer |
 | --- | --- | --- |
 | `data/achievements.json` | array of `{name, description, badge, proof}` | `templates/partials/about.html` |
-| `data/social.json` | array of `{name, icon, link}` | `templates/partials/about.html` |
+| `data/social.json` | array of `{name, link, icon}` where `icon` may be null and null-icon entries require `asset` | `templates/partials/about.html` |
 | `data/skills.json` | groups with `grouping` and `skills`; each skill may be a string or an object with `name`, optional `icon`/`link` | `templates/partials/skills.html` |
 | `data/experience.json` | array of `{role, company, summary, range}` | `templates/partials/experience.html` |
 | `data/education.json` | array of `{school, degree, major, notes, range}` | `templates/partials/education.html` |
@@ -32,7 +32,7 @@ The current skills template does not render a skill object's `link`; do not assu
 
 ## CMS coupling
 
-`static/admin/config.yml` configures the GitHub backend for `nokotaro/zola-portfolio`, branch `main`, Japanese UI, media under `static/media`, and collections for Blog, Projects, Contributions, Publications, and general settings.
+`static/admin/config.yml` configures the GitHub backend for `nokotaro/zola-portfolio`, branch `main`, Japanese UI, media under `static/media`, and collections for Blog, Projects, Contributions, Publications, and general settings. The homepage JSON files are hand-authored and are not CMS file collections.
 
 When changing a content schema:
 

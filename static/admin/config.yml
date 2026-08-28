@@ -11,87 +11,75 @@ collections:
   - name: "Blog"
     label: "ブログ"
     folder: "content/blog"
+    extension: "md"
+    format: "yaml-frontmatter"
     create: true
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "日時", name: "date", widget: "datetime" }
-      - { label: "説明", name: "description", widget: "string" }
-      - label: "分類"
-        name: "taxonomies"
-        widget: "object"
-        fields:
-          - { label: "ラベル", name: "tags", widget: "list", required: false }
+      - { label: "説明", name: "description", widget: "string", required: false }
       - label: "詳細"
         name: "extra"
         widget: "object"
         fields:
           - { label: "お気に入り", name: "featured", widget: "boolean", required: false }
           - { label: "リンク", name: "link", widget: "string" }
-          - { label: "画像", name: image, widget: "image" }
+          - { label: "画像", name: "image", widget: "image", required: false }
       - { label: "本文", name: "body", widget: "markdown" }
   - name: "Projects"
     label: "プロジェクト"
     folder: "content/projects"
+    extension: "md"
+    format: "yaml-frontmatter"
     create: true
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "日時", name: "date", widget: "datetime" }
-      - { label: "説明", name: "description", widget: "string" }
-      - label: "分類"
-        name: "taxonomies"
-        widget: "object"
-        fields:
-          - { label: "ラベル", name: "tags", widget: "list", required: false }
+      - { label: "説明", name: "description", widget: "string", required: false }
       - label: "詳細"
         name: "extra"
         widget: "object"
         fields:
           - { label: "お気に入り", name: "featured", widget: "boolean", required: false }
           - { label: "リンク", name: "link", widget: "string" }
-          - { label: "画像", name: image, widget: "image" }
+          - { label: "画像", name: "image", widget: "image", required: false }
       - { label: "本文", name: "body", widget: "markdown" }
   - name: "Contributions"
     label: "OSS"
     folder: "content/opensource"
+    extension: "md"
+    format: "yaml-frontmatter"
     create: true
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "日時", name: "date", widget: "datetime" }
-      - { label: "説明", name: "description", widget: "string" }
-      - label: "分類"
-        name: "taxonomies"
-        widget: "object"
-        fields:
-          - { label: "ラベル", name: "tags", widget: "list", required: false }
+      - { label: "説明", name: "description", widget: "string", required: false }
       - label: "詳細"
         name: "extra"
         widget: "object"
         fields:
           - { label: "お気に入り", name: "featured", widget: "boolean", required: false }
           - { label: "リンク", name: "link", widget: "string" }
-          - { label: "画像", name: image, widget: "image" }
+          - { label: "画像", name: "image", widget: "image", required: false }
       - { label: "本文", name: "body", widget: "markdown" }
   - name: "Publications"
     label: "出版物"
     folder: "content/publications"
+    extension: "md"
+    format: "yaml-frontmatter"
     create: true
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "日時", name: "date", widget: "datetime" }
-      - { label: "説明", name: "description", widget: "string" }
-      - label: "分類"
-        name: "taxonomies"
-        widget: "object"
-        fields:
-          - { label: "ラベル", name: "tags", widget: "list", required: false }
+      - { label: "説明", name: "description", widget: "string", required: false }
       - label: "詳細"
         name: "extra"
         widget: "object"
         fields:
           - { label: "お気に入り", name: "featured", widget: "boolean", required: false }
-          - { label: "引用", name: "bibtex", widget: "file" }
+          - { label: "引用", name: "bibtex", widget: "file", required: false }
           - { label: "リンク", name: "link", widget: "string" }
-          - { label: "画像", name: image, widget: "image" }
+          - { label: "画像", name: "image", widget: "image", required: false }
       - { label: "本文", name: "body", widget: "markdown" }
   - name: "settings"
     label: "設定"
@@ -103,9 +91,22 @@ collections:
         label: "設定"
         file: "config.toml"
         extension: toml
+        format: toml
         description: "サイト設定"
         fields:
+          - { label: "公開URL", name: "base_url", widget: "string" }
+          - { label: "Sassコンパイル", name: "compile_sass", widget: "hidden", default: true }
           - { label: "タイトル", name: "title", widget: "string" }
+          - { label: "説明", name: "description", widget: "string" }
+          - { label: "Feed生成", name: "generate_feed", widget: "hidden", default: false }
+          - { label: "検索index生成", name: "build_search_index", widget: "hidden", default: true }
+          - { label: "Taxonomies", name: "taxonomies", widget: "hidden", default: [] }
+          - name: "markdown"
+            label: "Markdown"
+            widget: "object"
+            fields:
+              - { label: "Syntax highlight", name: "highlight_code", widget: "boolean" }
+              - { label: "Highlight theme", name: "highlight_theme", widget: "string" }
           - name: "extra"
             label: "パラメータ"
             widget: "object"
@@ -116,58 +117,48 @@ collections:
               - { label: "アイコン", name: "avatar", widget: "image" }
               - { label: "ファビコン", name: "favicon", widget: "image" }
               - { label: "メールアドレス", name: "email", widget: "string" }
-              - { label: "電話番号", name: "phone", widget: "string" }
               - {
                   label: "数式",
                   name: "katex",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_about",
                   name: "show_about",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_skills",
                   name: "show_skills",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_projects",
                   name: "show_projects",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_opensource",
                   name: "show_opensource",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_publications",
                   name: "show_publications",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_experience",
                   name: "show_experience",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_education",
                   name: "show_education",
                   widget: "boolean",
-                  required: false,
                 }
               - {
                   label: "show_blog",
                   name: "show_blog",
                   widget: "boolean",
-                  required: false,
                 }
