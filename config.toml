@@ -2,11 +2,9 @@ base_url = "https://about.nokotaro.com"
 compile_sass = true
 title = "Nokotaro.com"
 description = "A clean resume theme"
-generate_feed = true
+generate_feed = false
 build_search_index = true
-taxonomies = [
-  { name = "tags", feed = true },
-]
+taxonomies = []
 
 [markdown]
 highlight_code = true
