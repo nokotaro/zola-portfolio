@@ -30,7 +30,7 @@ The section flags affect both the homepage section list and fullPage.js menu/anc
 - Data access: `load_data(path="data/...json")` and `get_section(path=".../_index.md")`.
 - URL generation: `get_url()` for local assets and anchors; page/section `permalink` for generated content.
 - Rendering: `markdown(inline=true)`, `markdown()`, `striptags`, `json_encode`, and `safe`.
-- Cross-loop state: `set_global` in `templates/json.html` and `templates/partials/section.html`.
+- Cross-loop state: `set_global` in `templates/json.html` tracks whether an item has actually been emitted so commas are inserted before subsequent JSON items; `templates/partials/section.html` uses it to track remaining pages.
 - Tests: `is starting_with(...)`, membership checks such as `"name" in skill`, and page/front-matter conditionals.
 
 Do not translate Jinja2 examples directly. Check Zola's embedded Tera version before using macros, filters, tests, scoping rules, or whitespace controls not already present here.
@@ -39,7 +39,7 @@ Do not translate Jinja2 examples directly. Check Zola's embedded Tera version be
 
 - Values passed through `safe` can render HTML. Trace whether the source is trusted Markdown, repository-owned JSON, or user-managed CMS input before changing the escaping boundary.
 - `company`, `summary`, school fields, and section descriptions intentionally pass through Markdown rendering.
-- `templates/json.html` must remain valid JSON for any mix of empty, draft, and populated sections. Comma placement and `set_global` state are fragile.
+- `templates/json.html` must remain valid JSON for any mix of empty, draft, and populated sections. Keep comma placement based on emitted items rather than source-loop positions, and keep every string value behind `json_encode`.
 - `page.extra.link`, `page.extra.image`, `page.extra.bibtex`, `page.extra.featured`, and `page.taxonomies.tags` are optional in templates but represented differently in CMS fields. Check missing-value behavior.
 - `config.default_language` is not explicitly set, so the current search path falls back to `search_index.en.js`.
 
