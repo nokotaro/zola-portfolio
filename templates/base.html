@@ -14,6 +14,7 @@
   {% set seo_canonical = "" %}
   {% set seo_type = "website" %}
   {% set seo_robots = "" %}
+  {% set load_search_assets = false %}
   {% if page %}
     {% set_global seo_title = page.title ~ " | " ~ config.title %}
     {% set_global seo_canonical = page.permalink %}
@@ -27,6 +28,9 @@
     {% if page.extra.robots %}
       {% set_global seo_robots = page.extra.robots %}
     {% endif %}
+    {% if page.extra.load_search %}
+      {% set_global load_search_assets = true %}
+    {% endif %}
   {% elif section %}
     {% set_global seo_canonical = section.permalink %}
     {% if section.path != "/" %}
@@ -39,7 +43,7 @@
   <title>{% block title %}{{ seo_title }}{% endblock title %}</title>
   {{ macros_head::metadata(title=seo_title, description=seo_description, canonical=seo_canonical, page_type=seo_type, image=config.extra.avatar, robots=seo_robots) }}
   {{ macros_head::stylesheet() }}
-  {{ macros_head::javascript() }}
+  {{ macros_head::javascript(load_search=load_search_assets) }}
 
   {% block rss %}
   {{ macros_head::rss() }}

@@ -32,6 +32,9 @@
 {% endmacro %}
 
 {% macro stylesheet() %}
+<!-- Connection hints for critical external assets -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://icon.nokotaro.com" crossorigin>
 <!-- CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/saira-extra-condensed@4.5.0/index.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@4.5.0/index.min.css">
@@ -44,13 +47,13 @@
 <link rel="stylesheet" href="{{ get_url(path='main.css', trailing_slash=false) }}">
 {% endmacro %}
 
-{% macro javascript() %}
+{% macro javascript(load_search=false) %}
 <!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" defer></script>
 {% if config.extra.katex %}
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"></script>
 {% endif %}
-{% if config.build_search_index %}
+{% if config.build_search_index and load_search %}
 <script src="{{ get_url(path='elasticlunr.min.js') | safe }}" defer></script>
 {% if config.default_language %}
 <script src="{{ get_url(path='search_index.' ~ config.default_language ~ '.js' ) | safe }}" defer></script>
@@ -77,7 +80,7 @@
 {% if config.extra.avatar %}
 <div style="display:block;margin:auto auto 0;padding:.5rem">
     <figure class="image">
-        <img id="avatar" class="is-rounded" src="{% if config.extra.avatar is starting_with("http") %}{{ config.extra.avatar }}{% else %}{{ get_url(path=config.extra.avatar) }}{% endif %}" alt="{{ config.extra.first_name }} {{ config.extra.last_name }}">
+        <img id="avatar" class="is-rounded" src="{% if config.extra.avatar is starting_with("http") %}{{ config.extra.avatar }}{% else %}{{ get_url(path=config.extra.avatar) }}{% endif %}" alt="{{ config.extra.first_name }} {{ config.extra.last_name }}" width="512" height="512">
     </figure>
 </div>
 {% endif %}
