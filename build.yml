@@ -1,3 +1,5 @@
+# Legacy reference only: GitHub Actions does not discover workflow files at the
+# repository root. Production deployment uses Cloudflare Workers & Pages.
 name: Build
 
 on:

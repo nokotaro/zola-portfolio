@@ -10,6 +10,21 @@ Redesigned form [hugo resume](https://github.com/eddiewebb/hugo-resume).
 + Includes a client-side search at '/search'. 
 + Includes an `/admin` endpoint that can allow authorized users to use a WYSIWYG editor and commit files back to markdown, but with a Wordpress/CMS like experience.
 
+## Build and deployment contract
+
+This repository uses **Zola 0.18.0** as its verified build baseline. Install that exact version before running the canonical validation and build commands:
+
+```bash
+zola check
+zola build
+```
+
+`zola build` writes the generated static site to `public/`. For local development, run `zola serve`, which serves the site at `http://127.0.0.1:1111/` by default.
+
+Production is deployed with Cloudflare Workers & Pages. Cloudflare dashboard settings are not stored in this repository, so verify that the production project uses `ZOLA_VERSION=0.18.0`, the build command `zola build`, and the output directory `public`. The production Zola version cannot be verified from the repository.
+
+There is currently no active GitHub Actions workflow. The root-level [`build.yml`](build.yml) is an inactive legacy GitHub Pages workflow retained for historical reference; GitHub Actions only discovers workflows under `.github/workflows/`, and this file is not the production deployment path.
+
 ## Quick Start
 
 ```bash
