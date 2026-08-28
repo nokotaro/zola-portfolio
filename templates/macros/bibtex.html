@@ -14,14 +14,20 @@
 
 {% macro script() %}
 <script>
-  function show_bib(bib_path) {
-    $.ajax({
-      url: bib_path,
-      success: function (data) {
-        $("#bibtex-content").text(data);
-        $("#copyTarget").addClass("is-active");
-      },
-    });
+  async function show_bib(bib_path) {
+    try {
+      var response = await fetch(bib_path);
+
+      if (!response.ok) {
+        return;
+      }
+
+      var data = await response.text();
+      document.getElementById("bibtex-content").value = data;
+      document.getElementById("copyTarget").classList.add("is-active");
+    } catch (_error) {
+      return;
+    }
   }
 
   document
@@ -31,7 +37,7 @@
       copyText.select();
       copyText.setSelectionRange(0, 99999);
       navigator.clipboard.writeText(copyText.value);
-      $("#copyTarget").removeClass("is-active");
+      document.getElementById("copyTarget").classList.remove("is-active");
     });
 </script>
 {% endmacro %}

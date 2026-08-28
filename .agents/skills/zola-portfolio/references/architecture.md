@@ -42,6 +42,6 @@ Production is built and deployed with Cloudflare Workers & Pages and served at `
 
 ## External browser assets
 
-The document head loads Open Sans, Saira Extra Condensed, Font Awesome 5.15.4, Devicon 2.13.0, Bulma 0.9.3, and jQuery 3.6.0 from CDNs. fullPage.js 3.1.2 and its scroll-overflow vendor script are also loaded from jsDelivr. KaTeX 0.11.0 is conditional and disabled by the active configuration.
+The document head loads Open Sans, Saira Extra Condensed, Font Awesome 5.15.4, Devicon 2.13.0, and Bulma 0.9.3 from CDNs. fullPage.js 3.1.2 and its scroll-overflow vendor script are also loaded from jsDelivr. KaTeX 0.11.0 is conditional and disabled by the active configuration. The BibTeX helper uses browser-native `fetch` and DOM APIs rather than jQuery.
 
 Treat these versions and load order as production behavior. An upgrade or self-hosting migration is a separate task requiring browser regression checks.
