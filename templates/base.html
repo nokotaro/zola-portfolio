@@ -9,7 +9,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  {% set seo_title = config.title %}
+  {% set seo_description = config.description %}
+  {% set seo_canonical = "" %}
+  {% set seo_type = "website" %}
+  {% set seo_robots = "" %}
+  {% if page %}
+    {% set_global seo_title = page.title ~ " | " ~ config.title %}
+    {% set_global seo_canonical = page.permalink %}
+    {% set_global seo_type = "article" %}
+    {% if page.description %}
+      {% set_global seo_description = page.description %}
+    {% endif %}
+    {% if page.extra.og_type %}
+      {% set_global seo_type = page.extra.og_type %}
+    {% endif %}
+    {% if page.extra.robots %}
+      {% set_global seo_robots = page.extra.robots %}
+    {% endif %}
+  {% elif section %}
+    {% set_global seo_canonical = section.permalink %}
+    {% if section.path != "/" %}
+      {% set_global seo_title = section.title ~ " | " ~ config.title %}
+    {% endif %}
+    {% if section.description %}
+      {% set_global seo_description = section.description %}
+    {% endif %}
+  {% endif %}
+  <title>{% block title %}{{ seo_title }}{% endblock title %}</title>
+  {{ macros_head::metadata(title=seo_title, description=seo_description, canonical=seo_canonical, page_type=seo_type, image=config.extra.avatar, robots=seo_robots) }}
   {{ macros_head::stylesheet() }}
   {{ macros_head::javascript() }}
 

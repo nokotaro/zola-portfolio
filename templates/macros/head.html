@@ -1,3 +1,36 @@
+{% macro metadata(title, description="", canonical="", page_type="website", image="", robots="") %}
+{% if description %}
+<meta name="description" content="{{ description }}">
+{% endif %}
+<meta name="author" content="{{ config.extra.first_name }} {{ config.extra.last_name }}">
+{% if robots %}
+<meta name="robots" content="{{ robots }}">
+{% endif %}
+{% if canonical %}
+<link rel="canonical" href="{{ canonical | safe }}">
+{% endif %}
+<meta property="og:title" content="{{ title }}">
+{% if description %}
+<meta property="og:description" content="{{ description }}">
+{% endif %}
+{% if canonical %}
+<meta property="og:url" content="{{ canonical | safe }}">
+{% endif %}
+<meta property="og:type" content="{{ page_type }}">
+<meta property="og:site_name" content="{{ config.title }}">
+{% if image %}
+<meta property="og:image" content="{% if image is starting_with("http") %}{{ image }}{% else %}{{ get_url(path=image) }}{% endif %}">
+{% endif %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title }}">
+{% if description %}
+<meta name="twitter:description" content="{{ description }}">
+{% endif %}
+{% if image %}
+<meta name="twitter:image" content="{% if image is starting_with("http") %}{{ image }}{% else %}{{ get_url(path=image) }}{% endif %}">
+{% endif %}
+{% endmacro %}
+
 {% macro stylesheet() %}
 <!-- CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/saira-extra-condensed@4.5.0/index.min.css">
